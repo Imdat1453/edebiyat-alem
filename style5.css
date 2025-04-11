@@ -57,7 +57,6 @@
   /* Başlık ve Header */
   .header {
     background-image: url('Header5.jpg');
-    background-position: center;
     background-color: #5C6BC0;
     color: rgb(255, 255, 255);
     padding: 20px;
