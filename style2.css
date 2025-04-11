@@ -1,0 +1,171 @@
+/* Mobil cihazlar için düzenlemeler */
+@media (max-width: 768px) {
+    body {
+      font-size: 16px;  /* Mobilde yazı boyutunu biraz küçült */
+    }
+  
+    .container {
+      width: 90%;  /* Mobilde daha geniş alan kullan */
+      padding: 15px;  /* Padding'i azalt */
+    }
+  
+    h1 {
+      font-size: 2em;  /* Başlık boyutunu küçült */
+    }
+  
+    /* Butonları daha büyük yapalım */
+    button {
+      font-size: 14px;
+      padding: 12px 25px;
+    }
+  
+    /* Menüdeki öğeleri dikey hizalayalım */
+    nav ul {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+      list-style: none;
+      text-align: center;
+    }
+  
+    nav ul li {
+      margin: 10px 0;
+    }
+  }
+    /* Genel Ayarlar */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  
+  body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  /* Başlık ve Header */
+  .header {
+    background-image: url('header2.jpg');
+    background-position: center;
+    background-color: #5C6BC0;
+    color: rgb(40, 31, 20);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .header p {
+    font-size: 1.2em;
+    margin-top: 5px;
+  }
+  
+  /* İçerik Bölümü */
+  /* Genel düzenlemeler */
+  .content {
+    width: 80%; /* İçeriği ortalamak için genişlik */
+    margin: 20px auto; /* Sayfada ortalanmış bir kutu */
+    padding: 20px;
+    background-color: #fff; /* Arka plan rengi */
+    border-radius: 8px; /* Köşe yuvarlama */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #fff; /* Başlık yazı rengi beyaz */
+    margin-bottom: 15px; /* Başlık ve altındaki liste arasındaki boşluk */
+    background-color: #8B4513; /* Başlık arka planını kahverengi yapıyoruz */
+    padding: 10px; /* Başlık etrafında biraz boşluk */
+    border-radius: 5px; /* Köşeleri yuvarlatmak */
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  ul li {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px; /* Her madde arasında boşluk */
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1em;
+    color: #999;
+    padding: 20px;
+  }
+  
+  .footer p {
+    margin-top: 10px;
+  }
+  
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th,td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .th1 {
+    background-color: #231308;
+    color: #f4f4f9;
+    font-size: 18px;
+  }
+  
+  .th2 {
+    background-color: #693613 ;
+    color: #f4f4f9;
+    font-size: 18px;
+  }
+  
+  .th3 {
+    background-color: #b65a18 ;
+    color: #f4f4f9;
+    font-size: 18px;
+  }
+  
+  .text-background {
+    background-color: antiquewhite;
+    color: rgb(33, 22, 15);
+  }
+  
+ /* Mobilde tabloyu küçük ekranlara uyumlu yapalım */
+ @media (max-width: 768px) {
+  table {
+    width: 100%; /* Ekranın tamamını kapsayacak şekilde genişlik */
+    table-layout: fixed; /* Sabit genişlikli sütunlar */
+  }
+
+  th, td {
+    padding: 8px; /* Daha fazla alan için padding küçültülebilir */
+  }
+
+  th, td {
+    word-wrap: break-word; /* Uzun kelimelerin satır sonuna gelmesini sağlar */
+  }
+}  

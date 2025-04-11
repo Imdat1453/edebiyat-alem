@@ -1,0 +1,58 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #000000;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .author-card {
+    display: flex;
+    background-color: #664141;
+    background-image: url('brownpaper2.jpg');
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+  
+  .author-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .author-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .author-info {
+    flex: 1;
+  }
+  
+  .author-info h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 600px) {
+    .author-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .author-card img {
+      margin-bottom: 15px;
+      margin-right: 0;
+    }
+  }
+  

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şıklı Soru-Cevap Sistemi</title>
+    <style>
+        /* Sayfa genel stili */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto; /* Bu kısmı değiştirdik */
+            margin: 0;
+            padding: 0;  /* Margin ve padding sıfırlandı */
+            overflow-x: hidden; /* Yatay kaydırma engellendi */
+        }
+
+        /* Başlık stili */
+        h2 {
+            color: #6d501d;
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 30px;  /* Başlık için yukarıya margin ekledik */
+            margin-bottom: 20px;
+        }
+
+        /* Soru kısmı */
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Şıklar */
+        .secenekler {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            width: 250px;
+            text-align: center;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Şık hover ve seçili durum */
+        input[type="radio"]:checked + label {
+            background-color: #602b0f;
+            color: white;
+            border-color: #6f3a1c;
+        }
+
+        label:hover {
+            background-color: #f1f1f1;
+            border-color: #aaa;
+        }
+
+        /* Buton */
+        button {
+            background-color: #663f24;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #563e24;
+        }
+
+        /* Sonuç mesajı */
+        #sonuc {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Doğru cevaba yeşil, yanlış cevaba kırmızı */
+        .dogru {
+            color: green;
+        }
+
+        .yanlis {
+            color: red;
+        }
+
+        /* Başlık ve Header */
+  .header {
+    background-image: url('header31.jpg');
+    background-color: #5C6BC0;
+    background-position: center;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .header p {
+    font-size: 1.2em;
+    margin-top: 5px;
+  }
+
+/* Genel düzenlemeler */
+.content {
+    width: 80%; /* İçeriği ortalamak için genişlik */
+    margin: 20px auto; /* Sayfada ortalanmış bir kutu */
+    padding: 20px;
+    background-color: #fff; /* Arka plan rengi */
+    border-radius: 8px; /* Köşe yuvarlama */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #fff; /* Başlık yazı rengi beyaz */
+    margin-bottom: 15px; /* Başlık ve altındaki liste arasındaki boşluk */
+    background-color: #8B4513; /* Başlık arka planını kahverengi yapıyoruz */
+    padding: 10px; /* Başlık etrafında biraz boşluk */
+    border-radius: 5px; /* Köşeleri yuvarlatmak */
+  }
+
+    </style>
+</head>
+<body>
+    <section class="content">
+
+    <div>
+        <header class="header"> <h1>Şiir Ünitesi Testi</h1></header>
+       
+        
+        <!-- Soru 1 -->
+        <p><strong>Soru 1</strong> Özellikle Azerbaycan sahasının, bazı edebiyat otoritelerince de Türk edebiyatının en büyük şairi, dünya edebiyatının da en büyük lirik şairlerinden kabul edilir. Asıl adı Mehmed bin Süleyman’dır. Şairin 888/1483 yılında Bağdat yakınlarındaki Hille bucağında dünyaya geldiği sanılmaktadır. Âşıkane şiirin edebiyatımızdaki en büyük temsilcisi kabul edilir. Bütün şiirlerinde aşkı ve aşkın hâllerini coşkun bir lirizmle ifade eder. Doğduğu muhitten hiç ayrılmamış, İstanbul’a hiç gelmemiştir. Naat türünde kaleme aldığı “Su Kasidesi” oldukça meşhurdur
+            <br>
+            <br> 
+            Bu parçada tanıtılan divan şairi aşağıdakilerden hangisidir?</p>
+        
+        <!-- Şıklar -->
+        <div class="secenekler">
+            <input type="radio" id="secenek1_1" name="cevap1" value="yanlış">
+            <label for="secenek1_1">Nef’i</label>
+
+            <input type="radio" id="secenek1_2" name="cevap1" value="doğru">
+            <label for="secenek1_2">Fuzuli</label>
+
+            <input type="radio" id="secenek1_3" name="cevap1" value="yanlış">
+            <label for="secenek1_3">Nedim</label>
+
+            <input type="radio" id="secenek1_4" name="cevap1" value="yanlış">
+            <label for="secenek1_4">Nabi</label>
+            
+                        <!-- Cevapla butonu -->
+        <button onclick="cevapKontrol('cevap1', 'sonuc1')">Cevapla</button>
+
+        <!-- Sonuç mesajı -->
+        <p id="sonuc1"></p>
+    
+        </div>
+
+        
+      
+    </div>
+
+    <div>
+
+        <!-- Soru 2 -->
+        <p><strong>Soru 2</strong> Aşağıdaki beyitlerden hangisi mahlas beyti olamaz?</p>
+        
+        <!-- Şıklar -->
+        <div class="secenekler">
+            <input type="radio" id="secenek2_1" name="cevap2" value="doğru">
+            <label for="secenek2_1">Süleyman yâd olundukça bile mezkûr olur muru Süleyman hatırlandıkça anılır karıncası da</label>
+
+            <input type="radio" id="secenek2_2" name="cevap2" value="yanlış">
+            <label for="secenek2_2">Ey Necati, yürü sabreyle elinden ne gelir Hûblar, cevr ü cefayı kime öğretmediler</label>
+
+            <input type="radio" id="secenek2_3" name="cevap2" value="yanlış">
+            <label for="secenek2_3">Bâkî-sıfat virdün elem itdün gözüm yaşını yem Kıldun garîk-i bahr-i gam deryâlara saldun beni</label>
+
+            <input type="radio" id="secenek2_4" name="cevap2" value="yanlış">
+            <label for="secenek2_4">Nedîmâ nâmını mümkin mi nakş ey nevk-i tîğ-i âh Dil-i yâr adlı bir elmâsdan kıymetli taşım va</label>
+        
+                <!-- Cevapla butonu -->
+        <button onclick="cevapKontrol('cevap2', 'sonuc2')">Cevapla</button>
+
+        <!-- Sonuç mesajı -->
+        <p id="sonuc2"></p>
+        
+        </div>
+        
+        
+    </div>
+
+    <div>
+
+        <!-- Soru 3 -->
+        <p><strong>Soru 3</strong> "-den" eki aşağıdakilerden hangisinde tamlayan eki görevinde kullanılmıştır?</p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek3_1" name="cevap3" value="yanlış">
+            <label for="secenek3_1">Arkadaşlarından ayrıldığı için üzüldü</label>
+
+            <input type="radio" id="scenek3_2" name="cevap3" value="yanlış">
+            <label for="scenek3_2">Senden uzakta yaşamak, bilsen ne kadar zor</label>
+
+            <input type="radio" id="secenek3_3" name="cevap3" value="doğru">
+            <label for="secenek3_3">Her şeyden ümidini kesmişti genç yaşında</label>
+
+            <input type="radio" id="secenek3_4" name="cevap3" value="yanlış">
+            <label for="secenek3_4">Yolun ortasından yürüyen adam bir anda yere düştü</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap3', 'sonuc3')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc3"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 4 -->
+        <p><strong>Soru 4</strong> Dağlar ile taşlar ile
+<br>
+                                   Çağırayım Mevlam seni.
+<br>          
+                                   Seherlerde kuşlar ile
+<br>           
+                                   Çağırayım Mevlam seni.
+            
+<br>
+<br>           
+            
+            Bu dörtlüğün kafiye örgüsü hangi şıkta doğru verilmiştir?</p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek4_1" name="cevap4" value="yanlış">
+            <label for="secenek4_1">Mâni tipi</label>
+
+            <input type="radio" id="scenek4_2" name="cevap4" value="doğru">
+            <label for="scenek4_2">Çapraz</label>
+
+            <input type="radio" id="secenek4_3" name="cevap4" value="yanlış">
+            <label for="secenek4_3">Sarmal</label>
+
+            <input type="radio" id="secenek4_4" name="cevap4" value="yanlış">
+            <label for="secenek4_4">Sarmal</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap4', 'sonuc4')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc4"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 5 -->
+        <p><strong>Soru 5</strong> İsim tamlamalarında iki öge vardır: tamlayan ve tamlanan. Tamlamada belirtilen, açıklanan isme tamlanan; tamlananı belirten, açıklayan sözcüklere de tamlayan denir.
+<br>
+<br>
+           <strong>Aşağıdakilerden hangisinde tamlananı ile tamlayanı yer değiştirmiş bir ad tamlaması vardır?</strong></p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek5_1" name="cevap5" value="yanlış">
+            <label for="secenek5_1">Geliyor kulağıma gurbetin kısık sesi</label>
+
+            <input type="radio" id="scenek5_2" name="cevap5" value="doğru">
+            <label for="scenek5_2">Elinden tutup sevdanın geliyorum gurbet</label>
+
+            <input type="radio" id="secenek5_3" name="cevap5" value="yanlış">
+            <label for="secenek5_3">Yalnızlık, yurdum; gurbet, arkadaşım olur</label>
+
+            <input type="radio" id="secenek5_4" name="cevap5" value="yanlış">
+            <label for="secenek5_4">Yıldızlarla gecenin ortasında, sabaha çok yakınım</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap5', 'sonuc5')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc5"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 6 -->
+        <p><strong>Soru 6</strong> Edip Ahmet Yükneki'nin; Karahanlı beylerinden Muhammed Dâd Sipehsalar'a sunduğu Atâbetü'l-Hakâyık adlı eserde, ahlaklı insan olmanın yollarını, ahlak ilkelerini açıklamış, çeşitli ahlaki öğütlerde bulunmuştur. İslami düşünce ve görüşlerle yol gösterici olmuştur. Eserde dünyayı, Allah'ı, insanı bilmenin sadece bilim yoluyla olabileceği anlatılmıştır. Bilginin faydası ve bilgisizliğin zararı işlenmiştir.
+<br>
+<br>
+           <strong>Metinden hareketle dönemin zihniyeti ile ilgili aşağıdakilerden hangisi söylenemez?</strong></p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek6_1" name="cevap6" value="doğru">
+            <label for="secenek6_1">Din ile bilim birbirlerinden ayrı düşünülmektedir</label>
+
+            <input type="radio" id="scenek6_2" name="cevap6" value="yanlış">
+            <label for="scenek6_2">Öğretici metin türünde eserler yazılmaktadır</label>
+
+            <input type="radio" id="secenek6_3" name="cevap6" value="yanlış">
+            <label for="secenek6_3">Yazılan eserler devlet büyüklerine sunulmaktadır</label>
+
+            <input type="radio" id="secenek6_4" name="cevap6" value="yanlış">
+            <label for="secenek6_4">Bilime önem verilmektedir</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap6', 'sonuc6')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc6"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <div>
+
+            <!-- Soru 7 -->
+            <p><strong>Soru 7</strong> Şiirler, "Kopuz" adı verilen sazla dile getirilmiştir. 
+<br>
+                Ölçü olarak ulusal ölçümüz olan "hece ölçüsü" kullanılmıştır. 
+<br>                
+                Nazım birimi "dörtlük"tür.   
+<br>                
+                Arı bir dil kullanılmıştır. 
+<br>            
+                Dizelere genel olarak yarım uyak hâkimdir. 
+<br>                
+                Daha çok doğa, aşk ve ölüm konuları işlenmiştir.
+<br>
+<br>                
+                Aşağıdakilerden hangisi özellikleri verilen edebiyat dönemine ait ürünlerden biri <mark><strong>değildir</strong></mark></p>
+    
+            <!-- Şıklar -->
+             <div class="secenekler">
+                <input type="radio" id="secenek7_1" name="cevap7" value="yanlış">
+                <label for="secenek7_1">Koşuk</label>
+    
+                <input type="radio" id="scenek7_2" name="cevap7" value="yanlış">
+                <label for="scenek7_2">Sagu</label>
+    
+                <input type="radio" id="secenek7_3" name="cevap7" value="doğru">
+                <label for="secenek7_3">Şarkı</label>
+    
+                <input type="radio" id="secenek7_4" name="cevap7" value="yanlış">
+                <label for="secenek7_4">Sav</label>
+    
+    <!-- Cevapla butonu -->
+    <button onclick="cevapKontrol('cevap7', 'sonuc7')">Cevapla</button>
+    <!-- Sonuç mesajı -->
+    <p id="sonuc7"></p>
+    
+             </div>
+        </div>
+    
+    <script>
+        function cevapKontrol(soruAdi, sonucId) {
+            var sonucMesaji = document.getElementById(sonucId);
+
+            // Seçilen cevabı alıyoruz
+            var cevaplar = document.getElementsByName(soruAdi);
+            var kullaniciCevabi;
+
+            // Kullanıcı hangi şıkkı seçmiş kontrol ediyoruz
+            for (var i = 0; i < cevaplar.length; i++) {
+                if (cevaplar[i].checked) {
+                    kullaniciCevabi = cevaplar[i].value;
+                }
+            }
+
+            // Doğru cevap kontrolü
+            if (kullaniciCevabi === "doğru") {
+                sonucMesaji.textContent = "Tebrikler, doğru cevap verdiniz!";
+                sonucMesaji.className = "dogru";
+            } else {
+                sonucMesaji.textContent = "Yanlış cevap, tekrar deneyin!";
+                sonucMesaji.className = "yanlis";
+            }
+        }
+    </script>
+    </section>
+
+</body>
+</html>

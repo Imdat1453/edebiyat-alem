@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şıklı Soru-Cevap Sistemi</title>
+    <style>
+        /* Sayfa genel stili */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto; /* Bu kısmı değiştirdik */
+            margin: 0;
+            padding: 0;  /* Margin ve padding sıfırlandı */
+            overflow-x: hidden; /* Yatay kaydırma engellendi */
+        }
+
+        /* Başlık stili */
+        h2 {
+            color: #6d501d;
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 30px;  /* Başlık için yukarıya margin ekledik */
+            margin-bottom: 20px;
+        }
+
+        /* Soru kısmı */
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Şıklar */
+        .secenekler {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            width: 250px;
+            text-align: center;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Şık hover ve seçili durum */
+        input[type="radio"]:checked + label {
+            background-color: #602b0f;
+            color: white;
+            border-color: #6f3a1c;
+        }
+
+        label:hover {
+            background-color: #f1f1f1;
+            border-color: #aaa;
+        }
+
+        /* Buton */
+        button {
+            background-color: #663f24;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #563e24;
+        }
+
+        /* Sonuç mesajı */
+        #sonuc {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Doğru cevaba yeşil, yanlış cevaba kırmızı */
+        .dogru {
+            color: green;
+        }
+
+        .yanlis {
+            color: red;
+        }
+
+        /* Başlık ve Header */
+  .header {
+    background-image: url('header31.jpg');
+    background-color: #5C6BC0;
+    background-position: center;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .header p {
+    font-size: 1.2em;
+    margin-top: 5px;
+  }
+
+/* Genel düzenlemeler */
+.content {
+    width: 80%; /* İçeriği ortalamak için genişlik */
+    margin: 20px auto; /* Sayfada ortalanmış bir kutu */
+    padding: 20px;
+    background-color: #fff; /* Arka plan rengi */
+    border-radius: 8px; /* Köşe yuvarlama */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #fff; /* Başlık yazı rengi beyaz */
+    margin-bottom: 15px; /* Başlık ve altındaki liste arasındaki boşluk */
+    background-color: #8B4513; /* Başlık arka planını kahverengi yapıyoruz */
+    padding: 10px; /* Başlık etrafında biraz boşluk */
+    border-radius: 5px; /* Köşeleri yuvarlatmak */
+  }
+
+    </style>
+</head>
+<body>
+    <section class="content">
+
+    <div>
+        <header class="header"> <h1>Roman Ünitesi Testi</h1></header>
+       
+        
+        <!-- Soru 1 -->
+        <p><strong>Soru 1</strong> <strong>Tanzimat Dönemi romanıyla ilgili aşağıdakilerden hangisi <mark>yanlıştır</mark></strong>?</p>
+        
+        <!-- Şıklar -->
+        <div class="secenekler">
+            <input type="radio" id="secenek1_1" name="cevap1" value="yanlış">
+            <label for="secenek1_1">Gönül maceraları, kölelik, eğitim ve Batı ile karşılaşma, sosyal problemler işlenen temalardandır</label>
+
+            <input type="radio" id="secenek1_2" name="cevap1" value="yanlış">
+            <label for="secenek1_2"> İlk romanlar anlatım tekniği bakımından halk hikâyesiyle meddah geleneğinin izlerini taşımaktadır</label>
+
+            <input type="radio" id="secenek1_3" name="cevap1" value="yanlış">
+            <label for="secenek1_3">Yusuf Kâmil Paşa’nın Fénelon’dan tercüme ettiği Tercüme-i Telemak adlı eseri roman türünün Türk edebiyatındaki ilk örneği kabul edilir</label>
+
+            <input type="radio" id="secenek1_4" name="cevap1" value="doğru">
+            <label for="secenek1_4">Teknik açıdan Batı ile denk romanlar ilk defa Tanzimat’ın II. döneminde yazılmıştır</label>
+            
+                        <!-- Cevapla butonu -->
+        <button onclick="cevapKontrol('cevap1', 'sonuc1')">Cevapla</button>
+
+        <!-- Sonuç mesajı -->
+        <p id="sonuc1"></p>
+    
+        </div>
+
+        
+      
+    </div>
+
+    <div>
+
+        <!-- Soru 2 -->
+        <p><strong>Soru 2</strong> “Sizin eserleriniz arasında edebî olanlar hangileridir?” sorusuna Ahmet Mithat Efendi şu şekilde cevap vermiştir:
+            “Ben “edebî” eser sayılacak hiçbir eser yazmadım. Çünkü
+            benim eserlerimin çoğunu yazdığım sıralarda, memlekette edebiyattan anlamayanlar nüfusumuzun mübalağasız
+            yüzde doksan dokuzunu teşkil ediyordu. Benim emelim de
+            ekseriyete hitap etmek, onları tenvire, onların dertlerine tercüman olmaya çalışmaktı. Zaten edebiyat yapmaya ne vaktim ne de kalemim müsait değildi. Edebiyatı Hamitlere, Ekremlere yani erbabına bıraktım. Fakat ne yalan söyleyeyim,
+            eğer elimde olsaydı onları da o devirde edebiyat yapmaktan
+            menederdim. Çünkü bence nüfusun yüzde doksan dokuzu
+            koyu cehaletten tamamıyla kurtulmamış bir memlekette henüz en aydınlık ve basit fikirleri bile sökemeyen kimselere
+            edebî eser vermek, karnını doyuramamış bir kimseye meyve ikram etmek kadar garip bir hareketti.”
+            <br>
+            <br>
+           <strong>Buna göre Ahmet Mithat Efendi ile ilgili aşağıdakilerden hangisi söylenebilir?</strong> </p>
+        
+        <!-- Şıklar -->
+        <div class="secenekler">
+            <input type="radio" id="secenek2_1" name="cevap2" value="doğru">
+            <label for="secenek2_1">Öğreticiliği estetiğe tercih etmiştir</label>
+
+            <input type="radio" id="secenek2_2" name="cevap2" value="yanlış">
+            <label for="secenek2_2">Tercüme faaliyetlerini önemsemiştir</label>
+
+            <input type="radio" id="secenek2_3" name="cevap2" value="yanlış">
+            <label for="secenek2_3">Aydın beğenisine hitap eden eserler vermiştir</label>
+
+            <input type="radio" id="secenek2_4" name="cevap2" value="yanlış">
+            <label for="secenek2_4">Eserlerinde daha çok bireysel meselelere eğilmiştir</label>
+        
+                <!-- Cevapla butonu -->
+        <button onclick="cevapKontrol('cevap2', 'sonuc2')">Cevapla</button>
+
+        <!-- Sonuç mesajı -->
+        <p id="sonuc2"></p>
+        
+        </div>
+        
+        
+    </div>
+
+    <div>
+
+        <!-- Soru 3 -->
+        <p><strong>Soru 3</strong> Mehmet Rauf’un Eylül adlı eseri hangi roman türünün Türk edebiyatındaki ilk örneği kabul edilir?</p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek3_1" name="cevap3" value="yanlış">
+            <label for="secenek3_1">Tarihî</label>
+
+            <input type="radio" id="scenek3_2" name="cevap3" value="doğru">
+            <label for="scenek3_2">Psikolojik</label>
+
+            <input type="radio" id="secenek3_3" name="cevap3" value="yanlış">
+            <label for="secenek3_3">Yerli</label>
+
+            <input type="radio" id="secenek3_4" name="cevap3" value="yanlış">
+            <label for="secenek3_4">Edebî</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap3', 'sonuc3')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc3"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 4 -->
+        <p><strong>Soru 4</strong> Hissettim ki bu akşam bu dağ karaltıları arasında İhsan’ın
+            ruhunu çıplak göreceğim. Bana mutlak bir şeyler söyleyecek. Ben de kürkümün yakasını kaldırdım, beraber çıktık.
+            Vadide ateşler, kızıl çadırlar görünecek kadar yükseldik;
+            dağın arkasından beyaz bir ışık ayrıca havayı yavaş yavaş istila ediyordu. Durdu, ışıklara uzun uzun baktı.
+            <br>
+            <br>
+           <strong>Bu parçadaki altı çizili söz, aşağıdakilerin hangisinde aynı anlamı karşılayacak şekilde kullanılmıştır?</strong></p>
+            
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek4_1" name="cevap4" value="yanlış">
+            <label for="secenek4_1"> Ben onu hiç tanıyamadım; başkalarının söyledikleri, anlattıklarıyla yetindim hep</label>
+
+            <input type="radio" id="scenek4_2" name="cevap4" value="yanlış">
+            <label for="scenek4_2">Gaz lambasının ışığında yüzünün tüm çizgileri daha da belirginleşiyordu</label>
+
+            <input type="radio" id="secenek4_3" name="cevap4" value="doğru">
+            <label for="secenek4_3">Benden sakladığı, bilmediğim, tanımadığım taraflarının olduğunu seziyordum</label>
+
+            <input type="radio" id="secenek4_4" name="cevap4" value="yanlış">
+            <label for="secenek4_4">Olumlu olumsuz tüm duygularından arınmış bir şekilde gelmişti aramıza</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap4', 'sonuc4')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc4"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 5 -->
+        <p><strong>Soru 5</strong> Niçin, diye bakan bir nazarla Suad’ın gösterdiği kaimeleri
+            alıyordu… Şimdi oradaki hayatı ( ) masrafı düşünüyorlar ( )
+            herhâlde on beş lira ile idare edebileceklerini zannediyorlardı ( ) Süreyya ( ) “Ah, bir kere oraya gidelim de aç
+            kalalım ( )” diyordu.
+            <br>
+            <br>
+           <strong>Bu parçada ayraçlarla ( ) gösterilen yerlere aşağıdakilerin hangisinde verilen noktalama işaretleri sırasıyla getirilmelidir?</strong></p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek5_1" name="cevap5" value="yanlış">
+            <label for="secenek5_1">(,) (;) (!) (,) (!)</label>
+
+            <input type="radio" id="scenek5_2" name="cevap5" value="yanlış">
+            <label for="scenek5_2">(;) (,) (?) (:) (!)</label>
+
+            <input type="radio" id="secenek5_3" name="cevap5" value="doğru">
+            <label for="secenek5_3">(,) (;) (.) (,) (!)</label>
+
+            <input type="radio" id="secenek5_4" name="cevap5" value="yanlış">
+            <label for="secenek5_4">(,) (,) (.) (,) (!)</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap5', 'sonuc5')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc5"></p>
+
+         </div>
+    </div>
+
+    
+    
+    <script>
+        function cevapKontrol(soruAdi, sonucId) {
+            var sonucMesaji = document.getElementById(sonucId);
+
+            // Seçilen cevabı alıyoruz
+            var cevaplar = document.getElementsByName(soruAdi);
+            var kullaniciCevabi;
+
+            // Kullanıcı hangi şıkkı seçmiş kontrol ediyoruz
+            for (var i = 0; i < cevaplar.length; i++) {
+                if (cevaplar[i].checked) {
+                    kullaniciCevabi = cevaplar[i].value;
+                }
+            }
+
+            // Doğru cevap kontrolü
+            if (kullaniciCevabi === "doğru") {
+                sonucMesaji.textContent = "Tebrikler, doğru cevap verdiniz!";
+                sonucMesaji.className = "dogru";
+            } else {
+                sonucMesaji.textContent = "Yanlış cevap, tekrar deneyin!";
+                sonucMesaji.className = "yanlis";
+            }
+        }
+    </script>
+    </section>
+
+</body>
+</html>

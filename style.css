@@ -1,0 +1,178 @@
+/* Mobil cihazlar için düzenlemeler */
+@media (max-width: 768px) {
+    body {
+      font-size: 16px;  /* Mobilde yazı boyutunu biraz küçült */
+    }
+  
+    .container {
+      width: 90%;  /* Mobilde daha geniş alan kullan */
+      padding: 15px;  /* Padding'i azalt */
+    }
+  
+    h1 {
+      font-size: 2em;  /* Başlık boyutunu küçült */
+    }
+  
+    /* Butonları daha büyük yapalım */
+    button {
+      font-size: 14px;
+      padding: 12px 25px;
+    }
+  
+    /* Menüdeki öğeleri dikey hizalayalım */
+    nav ul {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+      list-style: none;
+      text-align: center;
+    }
+  
+    nav ul li {
+      margin: 10px 0;
+    }
+  }
+  
+          body {
+              font-family: 'Georgia', serif;
+              background-color: #f5f5f5; /* Yumuşak beyaz arka plan (bu, resmin arka planla karışmaması için) */
+              color: #4a2c2a; /* Derin kahverengi metin */
+              margin: 0;
+              padding: 0;
+              line-height: 1.6;
+              background-image: url('paper texture white1.png'); /* Arka planda buruşmuş kağıt resmi */
+              background-size: cover; /* Resmi ekranda tam olarak kaplayacak şekilde ölçeklendir */
+              background-position: center; /* Resmin ortalanmış olması */
+              background-attachment: fixed; /* Arka plan resmi sabit olacak, sayfa kaydırıldıkça hareket etmez */
+          }
+  
+          header {
+              background-color: rgba(62, 31, 27, 0.8); /* Koyu kahverengi ve yarı şeffaf bir header */
+              background-image: url(brownpaper1.jpg);
+              color: #f2f1eb; /* Açık krem metin rengi */
+              text-align: center;
+              padding: 30px 10px;
+              border-bottom: 5px solid #e1c1a2; /* İnce bir alt kenar çizgisi */
+              box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          }
+  
+          header h1 {
+              font-size: 2.5rem;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+          }
+  
+          nav {
+              background-color: #e1c1a2; /* Soluk kahverengi arka plan */
+              padding: 15px;
+              text-align: center;
+          }
+  
+          nav a {
+              color: #4a2c2a; /* Derin kahverengi metin rengi */
+              text-decoration: none;
+              font-size: 1.2rem;
+              padding: 10px 15px;
+              margin: 0 20px;
+              font-weight: bold;
+          }
+  
+          nav a:hover {
+              background-color: #f2e1b3; /* Hafif sarımsı ton hover efekti */
+              color: #3e1f1b;
+              border-radius: 5px;
+          }
+  
+          .content {
+              padding: 40px 20px;
+              margin: 20px auto;
+              max-width: 1100px;
+              background-color: rgba(255, 255, 255, 0.9); /* Hafif beyaz opak içerik alanı */
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+              border-radius: 10px;
+          }
+  
+          .content h2 {
+              font-size: 2rem;
+              font-family: 'Georgia', serif;
+              text-align: center;
+              color: #3e1f1b;
+          }
+  
+          .content p {
+              font-size: 1.1rem;
+              color: #4a2c2a;
+              text-align: justify;
+              margin: 20px 0;
+              line-height: 1.8;
+          }
+  
+          footer {
+              background-color: rgba(62, 31, 27, 0.8); /* Koyu kahverengi ve yarı şeffaf footer */
+              color: #f2f1eb; /* Açık krem metin rengi */
+              text-align: center;
+              padding: 15px;
+              position: fixed;
+              width: 100%;
+              bottom: 0;
+          }
+          /* Listeyi sıfırlama ve düzenleme */
+  .unit-list {
+    list-style-type: none; /* Liste işaretlerini kaldır */
+    padding: 0; /* İç boşluğu sıfırladık */
+    margin: 0; /* Dış boşluğu sıfırladık */
+    display: flex; /* Flexbox ile öğeleri sıralıyoruz */
+    flex-direction: column; /* Dikeyde sıralama */
+    align-items: center; /* Ortalamak için */
+  }
+  
+  /* a etiketine buton stili verme */
+  .unit-button {
+    display: block; /* a etiketini blok eleman yapıyoruz */
+    background-image: url('button1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white; /* Yazı rengi */
+    text-decoration: none; /* Bağlantı alt çizgisi yok */
+    padding: 15px 30px; /* İç boşluk */
+    text-align: center; /* Metni ortalamak */
+    font-size: 16px; /* Yazı boyutu */
+    font-family: 'Roboto', sans-serif; /* Yazı tipi */
+    cursor: pointer; /* Üzerine gelindiğinde el simgesi */
+    width: auto; /* İçeriğe göre genişlik */
+    margin: 10px 0; /* Butonlar arasına boşluk ekler */
+    border-radius: 5px; /* Köşe yuvarlama */
+    transition: background-color 0.3s; /* Hover efektinin yumuşak geçişi */
+  }
+
+   /* a etiketine buton stili verme */
+   .unit-button1 {
+    display: block; /* a etiketini blok eleman yapıyoruz */
+    background-image: url('button1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white; /* Yazı rengi */
+    text-decoration: none; /* Bağlantı alt çizgisi yok */
+    padding: 15px 30px; /* İç boşluk */
+    text-align: center; /* Metni ortalamak */
+    font-size: 16px; /* Yazı boyutu */
+    font-family: 'Roboto', sans-serif; /* Yazı tipi */
+    cursor: pointer; /* Üzerine gelindiğinde el simgesi */
+    width: auto; /* İçeriğe göre genişlik */
+    margin: 10px 0; /* Butonlar arasına boşluk ekler */
+    border-radius: 5px; /* Köşe yuvarlama */
+    transition: background-color 0.3s; /* Hover efektinin yumuşak geçişi */
+  }
+  
+  /* Hover efekti */
+  .unit-button:hover {
+    background-color: #45a049; /* Hover durumunda renk değişimi */
+  }
+  
+  /* Mobil uyumlu butonlar için düzenlemeler */
+  @media (max-width: 768px) {
+    .unit-button {
+      padding: 12px 25px; /* Mobilde daha küçük boyut */
+      font-size: 14px; /* Yazı boyutunu küçük yap */
+    }
+  }

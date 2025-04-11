@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şıklı Soru-Cevap Sistemi</title>
+    <style>
+        /* Sayfa genel stili */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto; /* Bu kısmı değiştirdik */
+            margin: 0;
+            padding: 0;  /* Margin ve padding sıfırlandı */
+            overflow-x: hidden; /* Yatay kaydırma engellendi */
+        }
+
+        /* Başlık stili */
+        h2 {
+            color: #6d501d;
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 30px;  /* Başlık için yukarıya margin ekledik */
+            margin-bottom: 20px;
+        }
+
+        /* Soru kısmı */
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Şıklar */
+        .secenekler {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            width: 250px;
+            text-align: center;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Şık hover ve seçili durum */
+        input[type="radio"]:checked + label {
+            background-color: #602b0f;
+            color: white;
+            border-color: #6f3a1c;
+        }
+
+        label:hover {
+            background-color: #f1f1f1;
+            border-color: #aaa;
+        }
+
+        /* Buton */
+        button {
+            background-color: #663f24;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #563e24;
+        }
+
+        /* Sonuç mesajı */
+        #sonuc {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Doğru cevaba yeşil, yanlış cevaba kırmızı */
+        .dogru {
+            color: green;
+        }
+
+        .yanlis {
+            color: red;
+        }
+
+        /* Başlık ve Header */
+  .header {
+    background-image: url('header31.jpg');
+    background-color: #5C6BC0;
+    background-position: center;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .header p {
+    font-size: 1.2em;
+    margin-top: 5px;
+  }
+
+/* Genel düzenlemeler */
+.content {
+    width: 80%; /* İçeriği ortalamak için genişlik */
+    margin: 20px auto; /* Sayfada ortalanmış bir kutu */
+    padding: 20px;
+    background-color: #fff; /* Arka plan rengi */
+    border-radius: 8px; /* Köşe yuvarlama */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #fff; /* Başlık yazı rengi beyaz */
+    margin-bottom: 15px; /* Başlık ve altındaki liste arasındaki boşluk */
+    background-color: #8B4513; /* Başlık arka planını kahverengi yapıyoruz */
+    padding: 10px; /* Başlık etrafında biraz boşluk */
+    border-radius: 5px; /* Köşeleri yuvarlatmak */
+  }
+
+    </style>
+</head>
+<body>
+    <section class="content">
+
+    <div>
+        <header class="header"> <h1>Hikaye Ünitesi Testi</h1></header>
+       
+        
+        <!-- Soru 1 -->
+        <p><strong>Soru 1</strong> Aşağıdaki eserlerden hangisi mesnevidir?</p>
+        
+        <!-- Şıklar -->
+        <div class="secenekler">
+            <input type="radio" id="secenek1_1" name="cevap1" value="yanlış">
+            <label for="secenek1_1">Kerem ile Aslı</label>
+
+            <input type="radio" id="secenek1_2" name="cevap1" value="doğru">
+            <label for="secenek1_2">Leyla ile Mecnun</label>
+
+            <input type="radio" id="secenek1_3" name="cevap1" value="yanlış">
+            <label for="secenek1_3">Fehrat ile Şirin</label>
+
+            <input type="radio" id="secenek1_4" name="cevap1" value="yanlış">
+            <label for="secenek1_4">Arzu ilen Kamber</label>
+            
+                        <!-- Cevapla butonu -->
+        <button onclick="cevapKontrol('cevap1', 'sonuc1')">Cevapla</button>
+
+        <!-- Sonuç mesajı -->
+        <p id="sonuc1"></p>
+    
+        </div>
+
+        
+      
+    </div>
+
+    <div>
+
+        <!-- Soru 2 -->
+        <p><strong>Soru 2</strong> Kan-Turalı aydur:
+            – Bu dünyayı erenler (yiğitler) akıl ile bulmuşlardır. Bunun önünden sıçrayayım, ne hünerim var ise göstereyim, didi.
+            Adı görklü (güzel) Muhammed’e salavat getürdi, boğanın öninden savuldı. Boğa boynuzı üzerine dikildi. Kuyruğından üç kere küterip (kaldırıp) yire çaldı. Sünükleri (kemikleri) hurd oldı (un ufak oldu). Bastı, boğazladı, bıçak çıkarup derisin yüzdi. Eti meydanda koyup derisini tekürün önine getürüp aydur:
+            – Tan ile kızunı mana viresin, didi.
+            Dede Korkut Hikâyeleri’nden alınan bu metnin teması aşağıdakilerden hangisidir?</p>
+        
+        <!-- Şıklar -->
+        <div class="secenekler">
+            <input type="radio" id="secenek2_1" name="cevap2" value="doğru">
+            <label for="secenek2_1">Kahramanlık</label>
+
+            <input type="radio" id="secenek2_2" name="cevap2" value="yanlış">
+            <label for="secenek2_2">Yalnızlık</label>
+
+            <input type="radio" id="secenek2_3" name="cevap2" value="yanlış">
+            <label for="secenek2_3">Özlem</label>
+
+            <input type="radio" id="secenek2_4" name="cevap2" value="yanlış">
+            <label for="secenek2_4">Hüzün</label>
+        
+                <!-- Cevapla butonu -->
+        <button onclick="cevapKontrol('cevap2', 'sonuc2')">Cevapla</button>
+
+        <!-- Sonuç mesajı -->
+        <p id="sonuc2"></p>
+        
+        </div>
+        
+        
+    </div>
+
+    <div>
+
+        <!-- Soru 3 -->
+        <p><strong>Soru 3</strong> Aşağıdakilerden hangisi Türk edebiyatının bilinen ilk mesnevisidir?</p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek3_1" name="cevap3" value="yanlış">
+            <label for="secenek3_1">Mevlid (Vesiletü’n-Necat)</label>
+
+            <input type="radio" id="scenek3_2" name="cevap3" value="yanlış">
+            <label for="scenek3_2">Harname</label>
+
+            <input type="radio" id="secenek3_3" name="cevap3" value="yanlış">
+            <label for="secenek3_3">Risaletü’n-Nushiyye</label>
+
+            <input type="radio" id="secenek3_4" name="cevap3" value="doğru">
+            <label for="secenek3_4">Kutadgu Bilig</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap3', 'sonuc3')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc3"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 4 -->
+        <p><strong>Soru 4</strong> (I) Risaletü’n-Nushiyye, Yunus Emre’nin mesnevi tarzında kaleme aldığı bir eseridir. (II) Yunus Emre, bu eserinde insanın nefis mücadelesini, tasavvuf ahlakını, insanın yaratılış sırrını anlatmaktadır. (III) O, bu temaları ele alırken Anadolu Türklüğünün XIII. yüzyılda yaşam biçiminden aldığı olay ve motifleri kullanmıştır. (IV) Eserde dönemin edebî dili olan Farsçanın etkisi açıkça görülür. (V) Risaletü’n-Nushiyye, XIII. ve XIV. yüzyıl Türk mesnevi edebiyatının en güzel örneklerindendir. Yukarıdaki metinde numaralanmış cümlelerden hangisinde bir bilgi yanlışı vardır?</p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek4_1" name="cevap4" value="yanlış">
+            <label for="secenek4_1">II</label>
+
+            <input type="radio" id="scenek4_2" name="cevap4" value="doğru">
+            <label for="scenek4_2">IV</label>
+
+            <input type="radio" id="secenek4_3" name="cevap4" value="yanlış">
+            <label for="secenek4_3">III</label>
+
+            <input type="radio" id="secenek4_4" name="cevap4" value="yanlış">
+            <label for="secenek4_4">V</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap4', 'sonuc4')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc4"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 5 -->
+        <p><strong>Soru 5</strong> Aşağıdakilerden hangisi Tanzimat Dönemi hikâyelerinin özelliklerinden biri değildir?</p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek5_1" name="cevap5" value="yanlış">
+            <label for="secenek5_1">Özellikle romantizm ve realizm gibi Batılı edebî akımların etkisi görülür</label>
+
+            <input type="radio" id="scenek5_2" name="cevap5" value="yanlış">
+            <label for="scenek5_2">Kahramanlar genellikle İstanbul’un aydın çevrelerinden seçilmiştir</label>
+
+            <input type="radio" id="secenek5_3" name="cevap5" value="doğru">
+            <label for="secenek5_3">Sosyal ve tarihî konulara hiç yer verilmemiş, daima bireysel konular işlenmiştir</label>
+
+            <input type="radio" id="secenek5_4" name="cevap5" value="yanlış">
+            <label for="secenek5_4">Kişiler çoğu zaman tek yönlüdür ve iyiler ödüllendirilir, kötüler cezalandırılır</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap5', 'sonuc5')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc5"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 6 -->
+        <p><strong>Soru 6</strong> O senenin şedid ve medid mevsim-i şitâsı hükm-fermâ olmağa başladığı zaman, Behcet Bey, ileride kıl ü kâle sebep olmamak ve düğün masarifini îfâ etmek için Dilsitan’ı satmak istiyordu. Fakat pek geç. Zîrâ satılmak için vücuden mükemmel olması lâzım gelen Dilsitan’ın bir ciğeri eksikti. Bu ye’s-efzâ, bu musır, bu muannid öksürük bazı geceler, derece-i ifrata vararak evde herkesi ve bil-husus Behcet Bey’i rahatsız ettiğinden, Dilsitan’ı evin bir köşesindeki eksikliği cihetiyle hâli, rutubeti sebebiyle metruk bir odaya koymuşlardı ki, hastalığın sür’at-i terakkisine bu rutubetin pek tesiri olmuştu. Cevr-i Felek Kalfa odaya girip de en son nefesini âlâm ve ıztırap içinde almağa boş yere çalışan Dilsitan’a, yaşlarla dolu gözlerini nasbettiği zaman, yukarıdan, kemal-i neş’e vü şetaretle devam eden düğünün âvâze-i zevk ü şevki bu odaya aksediyordu. Samipaşazade Sezai’nin “Küçük Şeyler” adlı hikâye kitabından alınmış bu parça için aşağıdakilerden hangisi söylenemez?</p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek6_1" name="cevap6" value="doğru">
+            <label for="secenek6_1">Olay akışı kesilerek arada bilgiler verilmiştir</label>
+
+            <input type="radio" id="scenek6_2" name="cevap6" value="yanlış">
+            <label for="scenek6_2">Yabancı sözcüklerle yüklü ağır bir dil kullanılmıştır</label>
+
+            <input type="radio" id="secenek6_3" name="cevap6" value="yanlış">
+            <label for="secenek6_3">Tutsaklık teması işlenmiştir.</label>
+
+            <input type="radio" id="secenek6_4" name="cevap6" value="yanlış">
+            <label for="secenek6_4">Kahramanlar yaşamdan alınmış doğal kişilerdir</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap6', 'sonuc6')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc6"></p>
+
+         </div>
+    </div>
+    
+    <script>
+        function cevapKontrol(soruAdi, sonucId) {
+            var sonucMesaji = document.getElementById(sonucId);
+
+            // Seçilen cevabı alıyoruz
+            var cevaplar = document.getElementsByName(soruAdi);
+            var kullaniciCevabi;
+
+            // Kullanıcı hangi şıkkı seçmiş kontrol ediyoruz
+            for (var i = 0; i < cevaplar.length; i++) {
+                if (cevaplar[i].checked) {
+                    kullaniciCevabi = cevaplar[i].value;
+                }
+            }
+
+            // Doğru cevap kontrolü
+            if (kullaniciCevabi === "doğru") {
+                sonucMesaji.textContent = "Tebrikler, doğru cevap verdiniz!";
+                sonucMesaji.className = "dogru";
+            } else {
+                sonucMesaji.textContent = "Yanlış cevap, tekrar deneyin!";
+                sonucMesaji.className = "yanlis";
+            }
+        }
+    </script>
+    </section>
+
+</body>
+</html>
+
+

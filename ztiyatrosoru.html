@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şıklı Soru-Cevap Sistemi</title>
+    <style>
+        /* Sayfa genel stili */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto; /* Bu kısmı değiştirdik */
+            margin: 0;
+            padding: 0;  /* Margin ve padding sıfırlandı */
+            overflow-x: hidden; /* Yatay kaydırma engellendi */
+        }
+
+        /* Başlık stili */
+        h2 {
+            color: #6d501d;
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 30px;  /* Başlık için yukarıya margin ekledik */
+            margin-bottom: 20px;
+        }
+
+        /* Soru kısmı */
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Şıklar */
+        .secenekler {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            width: 250px;
+            text-align: center;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Şık hover ve seçili durum */
+        input[type="radio"]:checked + label {
+            background-color: #602b0f;
+            color: white;
+            border-color: #6f3a1c;
+        }
+
+        label:hover {
+            background-color: #f1f1f1;
+            border-color: #aaa;
+        }
+
+        /* Buton */
+        button {
+            background-color: #663f24;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #563e24;
+        }
+
+        /* Sonuç mesajı */
+        #sonuc {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Doğru cevaba yeşil, yanlış cevaba kırmızı */
+        .dogru {
+            color: green;
+        }
+
+        .yanlis {
+            color: red;
+        }
+
+        /* Başlık ve Header */
+  .header {
+    background-image: url('header31.jpg');
+    background-color: #5C6BC0;
+    background-position: center;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .header p {
+    font-size: 1.2em;
+    margin-top: 5px;
+  }
+
+/* Genel düzenlemeler */
+.content {
+    width: 80%; /* İçeriği ortalamak için genişlik */
+    margin: 20px auto; /* Sayfada ortalanmış bir kutu */
+    padding: 20px;
+    background-color: #fff; /* Arka plan rengi */
+    border-radius: 8px; /* Köşe yuvarlama */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #fff; /* Başlık yazı rengi beyaz */
+    margin-bottom: 15px; /* Başlık ve altındaki liste arasındaki boşluk */
+    background-color: #8B4513; /* Başlık arka planını kahverengi yapıyoruz */
+    padding: 10px; /* Başlık etrafında biraz boşluk */
+    border-radius: 5px; /* Köşeleri yuvarlatmak */
+  }
+
+    </style>
+</head>
+<body>
+    <section class="content">
+
+    <div>
+        <header class="header"> <h1>Tiyatro Ünitesi Testi</h1></header>
+       
+        
+        <!-- Soru 1 -->
+        <p><strong>Soru 1</strong> Ömer Efendi; elinde bastonu, omzunda mendili ile kahvede bir grup izleyiciye taklit yeteneğini kullanarak şu diyaloğu canlandırmaktadır
+            <br>
+            ─ Gumandan seni imtihan edecez, dedi. Hartayı masanın
+            üstüne yaydı.
+            <br>
+            ─ Bu ne ki, dedi.
+            <br>
+            ─ Hartadır beğem.
+            <br>
+            ─ Ya şu gördüğün uzun, kızıl çızgılar ne ki, dedi.
+            <br>
+            ─ Huduttur beğem, dedim.
+            <br>
+            ─ Ya şurası nire, dedi.
+            <br>
+            ─ Paris’tir, dedim.
+            <br>
+            ─ İstanbul’dan Paris’e ne kadar vakitte geden, dedi.
+            <br>
+            ─ Eşeğinen dört saatte varırık, dedim.
+            <br>
+            <br>
+           <strong>Bu parçadaki Ömer Efendi’nin sanatçı kimliği için aşağıdakilerden hangisi söylenebilir?</strong></p>
+        
+        <!-- Şıklar -->
+        <div class="secenekler">
+            <input type="radio" id="secenek1_1" name="cevap1" value="yanlış">
+            <label for="secenek1_1">Kuklacı</label>
+
+            <input type="radio" id="secenek1_2" name="cevap1" value="yanlış">
+            <label for="secenek1_2">Hayalbaz</label>
+
+            <input type="radio" id="secenek1_3" name="cevap1" value="doğru">
+            <label for="secenek1_3">Meddah</label>
+
+            <input type="radio" id="secenek1_4" name="cevap1" value="yanlış">
+            <label for="secenek1_4">Suflör</label>
+            
+                        <!-- Cevapla butonu -->
+        <button onclick="cevapKontrol('cevap1', 'sonuc1')">Cevapla</button>
+
+        <!-- Sonuç mesajı -->
+        <p id="sonuc1"></p>
+    
+        </div>
+
+        
+      
+    </div>
+
+    <div>
+
+        <!-- Soru 2 -->
+        <p><strong>Soru 2</strong> <strong>Hacivat</strong> ─ (Semai söyleyerek gelir.) (…) (Perde gazelini
+            okur.) (…)
+            Efendim, demem o deme değil, benim gönlümün süruru,
+            gözümün nuru, ömrümün hasılı Karagöz’üm acaba nerede ola? Hâbda mı? Bidâr mı, yoksa köşe penceresine
+            kurulmuş mudur?
+            <br>
+           <strong>Karagöz</strong> (Pencereden) ─ Hayır, nezle olmuş burnunu
+            çeker?
+            <br>
+           <strong>Hacivat</strong> ─ Ne olur, tenezzül ediverse de rûberû gelsek.
+           <br>
+           <strong>Karagöz</strong> (Pencereden) ─ Burun buruna mı gelsek? (Çekilir.)
+           <br>
+           <strong>Hacivat</strong> (Makamla) ─ Gel benim Karagöz’üm, sefalar
+            vaktidir şimdi?
+            <br>
+           <strong>Karagöz</strong> (Pencereden makamla) ─ Sırtın kaşınıyorsa
+           <br>
+           <strong>Hacivat</strong>, tımarın vaktidir şimdi.
+           <br>
+           <strong>Hacivat</strong> ─ Yâr bana bir eğlence medet… Yâr bana bir
+            eğlence medet!.. (Karagöz köşeden atlar, Hacivat ile boğuşmaya başlar.)
+            <br>
+            <br>
+           <strong>Bu parça, gölge oyununun hangi bölümünden alınmış olabilir?</strong></p>
+        
+        <!-- Şıklar -->
+        <div class="secenekler">
+            <input type="radio" id="secenek2_1" name="cevap2" value="doğru">
+            <label for="secenek2_1">Mukaddime</label>
+
+            <input type="radio" id="secenek2_2" name="cevap2" value="yanlış">
+            <label for="secenek2_2">Muhavere</label>
+
+            <input type="radio" id="secenek2_3" name="cevap2" value="yanlış">
+            <label for="secenek2_3">Fasıl</label>
+
+            <input type="radio" id="secenek2_4" name="cevap2" value="yanlış">
+            <label for="secenek2_4">Atışma</label>
+        
+                <!-- Cevapla butonu -->
+        <button onclick="cevapKontrol('cevap2', 'sonuc2')">Cevapla</button>
+
+        <!-- Sonuç mesajı -->
+        <p id="sonuc2"></p>
+        
+        </div>
+        
+        
+    </div>
+
+    <div>
+
+        <!-- Soru 3 -->
+        <p><strong>Soru 3</strong> <strong>Pişekâr</strong> ─ Vah, vah! Başka kardeşi var mı?
+            <br>
+           <strong>Kavuklu</strong> ─ Bunlar yedi kardeş. Yedisi de böyle kambur.
+            “Yedi Kamburlar” diye namı var. Ben de asaletleri var diye
+            ablasını aldım.
+            <br>
+           <strong>Pişekâr</strong> ─ Geçinmeniz nasıl?
+           <br>
+           <strong>Kavuklu</strong> ─ Eh, şöyle böyle! Yuvarlanıp gidiyoruz.
+           <br>
+           <strong>Pişekâr</strong> ─ Kadının sana iyi bakar ya?
+           <br>
+           <strong>Kavuklu</strong> ─ Ben zengin diye aldım, züğürt çıktı.
+           <br>
+           <strong>Pişekâr</strong> ─ Akarı var, mı dediler?
+           <br>
+           <strong>Kavuklu</strong>  ─ Öyle dediler ya, burnundan başka akarı yok.
+           <br>
+           <strong>Pişekâr</strong>  ─ Hiçbir şeysiz mi geldi?
+           <br>
+           <strong>Kavuklu</strong>  ─ Dediğin gibi. “İki camcı dükkânı ile bir fırını
+            var.” dediler. Ne çıksa beğenirsin? İki camcı gözleri, ne
+            görse istiyor; bir fırın da ağzı, ne verirsen yiyor.
+            <br>
+            <br>
+           <strong>Bu parçadan Kavuklu ile ilgili,</strong>
+            <br>
+            <br>
+            I. Evleneceği kişinin fiziksel özelliklerini önemsemiştir.
+            <br>
+            II. Eşinden asalet ve maddiyat özellikleri bakımından
+            beklentileri vardır.
+            <br>
+            III. Pişekâr’ın kendi söylediklerini yanlış anlamasından
+            yakınmaktadır.
+            <br>
+            IV. Başkalarının eşi için söyledikleriyle kendi yaşadıkları arasında fark vardır.
+            <br>
+            <br>
+           <strong>yargılarından hangilerine ulaşılamaz?</strong></p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek3_1" name="cevap3" value="doğru">
+            <label for="secenek3_1">I ve III</label>
+
+            <input type="radio" id="scenek3_2" name="cevap3" value="yanlış">
+            <label for="scenek3_2">I ve II</label>
+
+            <input type="radio" id="secenek3_3" name="cevap3" value="yanlış">
+            <label for="secenek3_3">II ve III</label>
+
+            <input type="radio" id="secenek3_4" name="cevap3" value="yanlış">
+            <label for="secenek3_4">III ve IV</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap3', 'sonuc3')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc3"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 4 -->
+        <p><strong>Soru 4</strong> Tanzimat sanatçıları arasında daha çok, şiirleriyle tanınmıştır. Manzum hatta mensur tiyatro eserlerinde bile şairane bir üslubu vardır. Çoğu uzun şiir olan şiir kitapları ile
+            manzum tiyatrolarında aynı şairane üslubu kullanmıştır.
+            Şiirlerindeki kelime kadrosu, söz ve anlam sanatları, ifade
+            çeşitleri nesirlerinde de görülür. Nazife, Tezer, Eşber, Sardanapal, İlhan, Turhan aruz vezniyle yazılmış oyunlarıdır.
+            Edebiyat çevrelerinde bu eserlerle ilgili sahnelenmek için
+            değil, okunmak için yazıldığı kanaati yaygındır.
+            <br>
+            <br>
+           <strong>Bu parçada söz edilen sanatçı aşağıdakilerden hangisidir?</strong></p>
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek4_1" name="cevap4" value="yanlış">
+            <label for="secenek4_1">Namık Kemal</label>
+
+            <input type="radio" id="scenek4_2" name="cevap4" value="yanlış">
+            <label for="scenek4_2">Şemsettin Sami</label>
+
+            <input type="radio" id="secenek4_3" name="cevap4" value="yanlış">
+            <label for="secenek4_3">Ahmet Mithat Efendi</label>
+
+            <input type="radio" id="secenek4_4" name="cevap4" value="doğru">
+            <label for="secenek4_4">Abdülhak Hamit Tarhan</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap4', 'sonuc4')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc4"></p>
+
+         </div>
+    </div>
+
+    <div>
+
+        <!-- Soru 5 -->
+        <p><strong>Soru 5</strong> Namık Kemal’in tiyatrosu, bir dava tiyatrosudur. Yazar;
+            vatanperverlik, İslam birliği, insan hakları gibi inandığı
+            değerleri, toplumun kalkınmasına yönelik fikirlerini ve geleneğe ilişkin tenkitlerini tiyatro türünde verdiği eserlerinde de işler. XIX. yüzyılın başında bir Rumeli şehrindeki
+            yöneticinin zulmüne karşı başlayan isyanı Gülnihal adlı
+            oyununda; kuşatma altında bulunan bir kalenin fedakârlıklarla kurtuluşunu da - - - - adlı oyununda anlatır.
+            <br>
+            <br>
+           <strong>Bu parçada boş bırakılan yere aşağıdakilerden hangisi getirilmelidir?</strong>
+            
+
+        <!-- Şıklar -->
+         <div class="secenekler">
+            <input type="radio" id="secenek5_1" name="cevap5" value="yanlış">
+            <label for="secenek5_1">Zavallı Çocuk</label>
+
+            <input type="radio" id="scenek5_2" name="cevap5" value="yanlış">
+            <label for="scenek5_2">Kara Bela</label>
+
+            <input type="radio" id="secenek5_3" name="cevap5" value="doğru">
+            <label for="secenek5_3">Vatan yahut Silistre</label>
+
+            <input type="radio" id="secenek5_4" name="cevap5" value="yanlış">
+            <label for="secenek5_4">Akif Bey</label>
+
+<!-- Cevapla butonu -->
+<button onclick="cevapKontrol('cevap5', 'sonuc5')">Cevapla</button>
+<!-- Sonuç mesajı -->
+<p id="sonuc5"></p>
+
+         </div>
+    </div>
+
+    
+    
+    <script>
+        function cevapKontrol(soruAdi, sonucId) {
+            var sonucMesaji = document.getElementById(sonucId);
+
+            // Seçilen cevabı alıyoruz
+            var cevaplar = document.getElementsByName(soruAdi);
+            var kullaniciCevabi;
+
+            // Kullanıcı hangi şıkkı seçmiş kontrol ediyoruz
+            for (var i = 0; i < cevaplar.length; i++) {
+                if (cevaplar[i].checked) {
+                    kullaniciCevabi = cevaplar[i].value;
+                }
+            }
+
+            // Doğru cevap kontrolü
+            if (kullaniciCevabi === "doğru") {
+                sonucMesaji.textContent = "Tebrikler, doğru cevap verdiniz!";
+                sonucMesaji.className = "dogru";
+            } else {
+                sonucMesaji.textContent = "Yanlış cevap, tekrar deneyin!";
+                sonucMesaji.className = "yanlis";
+            }
+        }
+    </script>
+    </section>
+
+</body>
+</html>
